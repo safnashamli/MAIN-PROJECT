@@ -1,0 +1,80 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'index.html' %}
+{% block body%}
+<head>
+
+ <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #f2f2f2;}
+
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #017890;
+  color: white;
+}
+</style>
+
+</head>>
+<body>
+<table width="200" border="1" id="customers" class="table table-hover">
+  <tr>
+    <th colspan="4" scope="col">EXAM SHEDULE </th>
+  </tr>
+  <tr>
+    <td>Exam Name </td>
+    <td>Time</td>
+    <td>date</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <!--<td>&nbsp;</td>-->
+    <!--<td>&nbsp;</td>-->
+    <!--<td>&nbsp;</td>-->
+    <!--<td><p><a href="#">edit</a></p>-->
+    <!--<p><a href="#">delete</a></p></td>-->
+  </tr>
+  <tr></tr>
+    {% for i in val %}
+    <tr>
+      <td>{{i['exam name']}}</td>
+      <td>{{i['date']}}</td>
+      <td>{{i['time']}}</td>
+      <td><p><a href="#">edit</a></p>
+    <p><a href="deleteshedule?id={{i['schedule_id']}}">delete</a></p></td>
+    </tr>
+    {% endfor %}
+  <tr>
+    <td colspan="4"><form id="form1" name="form1" method="post" action="addshedule">
+      <label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add new" />
+        </div>
+      </label>
+    </form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+{% endblock %}

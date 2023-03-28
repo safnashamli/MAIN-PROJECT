@@ -1,0 +1,51 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+
+{% extends 'index.html' %}
+{% block body%}
+<body>
+<form id="form1" name="form1" method="post" action="addcourse2">
+<table width="200" border="1">
+  <tr>
+    <th colspan="3" scope="col">ADD COURSE </th>
+  </tr>
+  <tr>
+    <td>Department</td>
+    <td>
+      <select name="select">
+         {% for i in val %}
+        <option value="{{i['dep_id']}}">{{i['department name']}}</option>
+          {% endfor %}
+      </select>
+      </label>
+
+    </td>
+  </tr>
+  <tr>
+    <td>Course</td>
+    <td>
+      <label></label>
+      <label>
+      <input type="text" name="textfield" />
+      </label>
+      </td>
+  </tr>
+
+  <tr>
+    <td colspan="3">
+      <label>
+        <div align="center">
+          <input type="submit" name="Submit" value="Add" />
+        </div>
+      </label>
+       </td>
+  </tr>
+</table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,76 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>manage staff</title>-->
+<!--</head>-->
+{% extends 'index.html' %}
+{% block body%}
+
+<head>
+
+ <style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+#customers tr:nth-child(odd){background-color: #f2f2f2;}
+
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #017890;
+  color: white;
+}
+</style>
+
+</head>>
+<body>
+<form id="form1" name="form1" method="post" action="addstaff">
+<table width="296" border="1" id="customers" class="table table-hover">
+  <tr>
+    <th colspan="6" scope="col">Mange Staff </th>
+  </tr>
+  <tr>
+    <td width="32">name</td>
+    <td width="51">Address</td>
+    <td width="38">Phone</td>
+    <td width="33">Email</td>
+    <td width="68">department</td>
+    <td width="34">&nbsp;</td>
+  </tr>
+  {% for i in val %}
+  <tr>
+    <td>{{i['first name']}} {{i['last name']}}</td>
+    <td>{{i['house name']}}  {{i['place']}}  {{i['pincode']}} {{i['post']}} </td>
+    <td>{{i['phone']}} </td>
+    <td>{{i['email']}}</td>
+    <td>{{i['department name']}}</td>
+    <td><a href="">edit</a>
+    <p><a href="deletestaff?id={{i['lid']}}">delete</a> </p></td>
+  </tr>
+ {% endfor %}
+  <tr>
+    <td colspan="6">
+      <label>
+      <center><input type="submit" name="Submit" value="Add" /></center>
+        </label>
+         <a href=""></a></td>
+  </tr>
+</table>
+ </form>
+</body>
+</html>
+{% endblock %}
